@@ -1,46 +1,31 @@
 package Sorting;
 
 public class SelectionSort {
-    public static void selectionSort(int[] arr) {
-        int n = arr.length;
+    public static void main(String[] args) {
+        int[] nums = {6, 5, 2, 8, 9, 4};
+        int size = nums.length;
+        int minIndex;
 
-        // Traverse through all array elements
-        for (int i = 0; i < n - 1; i++) {
-            // Find the minimum element in unsorted array
-            int minIndex = i;
-            for (int j = i + 1; j < n; j++) {
-                if (arr[j] < arr[minIndex]) {
+        System.out.println("Before Sorting:");
+        for (int num : nums) {
+            System.out.print(num);
+        }
+
+        for (int i = 0; i < size - 1; i++) {
+            minIndex = i;
+            for (int j = i + 1; j < size; j++) {
+                if (nums[minIndex] > nums[j]) {
                     minIndex = j;
                 }
             }
-
-            // Swap the found minimum element with the first element
-            if (minIndex != i) {
-                int temp = arr[i];
-                arr[i] = arr[minIndex];
-                arr[minIndex] = temp;
-            }
+            int temp = nums[minIndex];
+            nums[minIndex] = nums[i];
+            nums[i] = temp;
         }
-    }
 
-    // Method to print the array
-    public static void printArray(int[] arr) {
-        for (int value : arr) {
-            System.out.print(value + " ");
+        System.out.println("\nAfter Selection Sorting:");
+        for (int num : nums) {
+            System.out.print(num);
         }
-        System.out.println();
-    }
-
-    // Main method
-    public static void main(String[] args) {
-        int[] arr = {64, 25, 12, 22, 11};
-
-        System.out.println("Original array:");
-        printArray(arr);
-
-        selectionSort(arr);
-
-        System.out.println("Sorted array:");
-        printArray(arr);
     }
 }

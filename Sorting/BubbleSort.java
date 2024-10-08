@@ -1,48 +1,28 @@
 package Sorting;
 
 public class BubbleSort {
-    static void bubbleSort(int[] arr) {
-        int n = arr.length;
-        for (int i = 0; i < n - 1; i++) {
-            // Flag to check if any swapping occurred
-            boolean swapped = false;
+    public static void main(String[] args) {
+        int[] nums = {6, 5, 2, 8, 9, 4};
+        int size = nums.length;
 
-            // Last i elements are already sorted
-            for (int j = 0; j < n - i - 1; j++) {
-                // Swap if the current element is greater than the next
-                if (arr[j] > arr[j + 1]) {
-                    // Swap arr[j] and arr[j + 1]
-                    int temp = arr[j];
-                    arr[j] = arr[j + 1];
-                    arr[j + 1] = temp;
-                    swapped = true;
+        System.out.println("Before Sorting:");
+        for (int num : nums) {
+            System.out.print(num);
+        }
+
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size - i - 1; j++) {
+                if (nums[j] > nums[j + 1]) {
+                    int temp = nums[j];
+                    nums[j] = nums[j + 1];
+                    nums[j + 1] = temp;
                 }
             }
-
-            // If no two elements were swapped in the inner loop, array is already sorted
-            if (!swapped) {
-                break;
-            }
         }
-    }
 
-    // Method to print the array
-    static void printArray(int[] arr) {
-        for (int j : arr) {
-            System.out.print(j + " ");
+        System.out.println("\nAfter Sorting:");
+        for (int num : nums) {
+            System.out.print(num);
         }
-        System.out.println();
-    }
-
-    public static void main(String[] args) {
-        int[] arr = {64, 34, 25, 12, 22, 11, 90};
-
-        System.out.println("Original array:");
-        printArray(arr);
-
-        bubbleSort(arr);
-
-        System.out.println("Sorted array:");
-        printArray(arr);
     }
 }
