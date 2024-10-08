@@ -1,7 +1,5 @@
 package StringMethods;
 
-import java.util.Locale;
-
 public class StringOperations {
     public static void main(String[] args) {
         String str = "Now is the winter of our discontent";
